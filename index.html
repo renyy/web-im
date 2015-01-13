@@ -194,8 +194,11 @@
 			$(window).bind('beforeunload', function() {
 				if (conn) {
 					conn.close();
+					if (navigator.userAgent.indexOf("Firefox") > 0)
+						return ' ';
+					else
+						return '';
 				}
-				return true;
 			});
 		});
 	});
